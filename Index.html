@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</ Wonder Shop>
+</head>
+<body>
+    
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonder Shop</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            background-color: #d3c7c7; /* Gris claro */
+        }
+        .header {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 60px;
+            color: black;
+        }
+        .login-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            border: none;
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .login-btn:hover {
+            background-color: #a49125b6; /* Color dorado más claro */
+        }
+        .login-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .login-modal input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-modal button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-modal button:hover {
+            background-color: gray;
+        }
+        .product-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .product {
+            margin: 10px;
+        }
+        .product img {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .cart-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: black;
+            color: white;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .cart-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: black;
+            color: white;
+            border-radius: 50%; /* Forma circular */
+            width: 70px; /* Diámetro */
+            height: 70px; /* Diámetro */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 10px; /* Tamaño del texto dentro */
+        
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Wonder Shop</h1>
+        <button class="login-btn" onclick="openLoginModal()">Iniciar sesión</button>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay" onclick="closeLoginModal()"></div>
+
+    <div class="login-modal" id="loginModal">
+        <h2>Iniciar sesión</h2>
+        <form>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit">Acceder</button>
+        </form>
+    </div>
+
+
+    <div class="product-section">
+        <div class="product">
+            <img src="C:\Users\vcruz\OneDrive\Documentos\HTML Pagina Web\Images\IMG_6638.JPG" alt="Camiseta 1">
+            <figcaption>Camiseta Oversize Talla M Color Beige </figcaption>
+        </div>
+        <div class="product">
+            <img src="C:\Users\vcruz\OneDrive\Documentos\HTML Pagina Web\Images\IMG_8197.JPG" alt="Camiseta 2">
+            <figcaption>Camiseta Oversize Talla XL Color Verde</figcaption>
+        </div>
+        <div class="product">
+            <img src="C:\Users\vcruz\OneDrive\Documentos\HTML Pagina Web\Images\IMG_8440.JPG" alt="Camiseta 3">
+            <figcaption>Camiseta Oversize Talla L Color Negra </figcaption>
+        </div>
+        <!-- Puedes añadir más productos aquí -->
+    </div>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Icono de Carrito</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #95d4dc; /* Fondo gris claro */
+                height: 100vh;
+            }
+    
+            /* Estilo del ícono del carrito */
+            .cart-icon {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: black;
+                border-radius: 50%; /* Hacer el contenedor circular */
+                width: 60px; /* Tamaño del contenedor */
+                height: 60px; /* Tamaño del contenedor */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+    
+            /* Tamaño de la imagen dentro del ícono */
+            .cart-icon img {
+                border-radius: 50%; /* Hacer el contenedor circular */
+                width: 60px; /* Ancho de la imagen */
+                height: 60px; /* Alto de la imagen */
+                object-fit: cover; /* Ajustar la imagen */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cart-icon">
+            <img src="C:\Users\vcruz\OneDrive\Documentos\HTML Pagina Web\Images\Carro de compras.avif" alt="Carrito de compras">
+        </div>
+    </body>
+    </html>
+
+    <script>
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'block';
+            document.getElementById('modalOverlay').style.display = 'block';
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+            document.getElementById('modalOverlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
